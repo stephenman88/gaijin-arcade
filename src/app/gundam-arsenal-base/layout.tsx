@@ -1,7 +1,7 @@
-
+import './style.css'
 
 export default function Layout({children}: Readonly<{children: React.ReactNode}>){
-    return(<main>
+    return(<div>
         {children}
-    </main>)
+    </div>)
 }
