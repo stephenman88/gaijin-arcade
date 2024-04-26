@@ -12,3 +12,56 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model GundamArsenalBaseCard {
+  id  Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cardType String @db.varchar(255)
+  msType String?
+  plType String?
+  parallel Boolean
+  cost Int
+  rarity String
+  mobility Int
+  longRange Int
+  shortRange Int
+  hp Int
+  earthMod String?
+  spaceMod String?
+  desertMod String?
+  waterMod String?
+  series String
+  mainWeapon String?
+  subWeapon String?
+  msAbility String?
+  msTargetType String?
+  msAbilityCost Int?
+  msActiveCondition String?
+  spAbilityDamage Int?
+  spAbilityCost Int?
+  spTargetType String?
+  linkIds GundamArsenalBaseLink[]
+  set GundamArsenalBaseSet[] @relation(fields: [setid], references: [id])
+  setId Int
+  setNum String
+  suitCode String?
+}
+
+model GundamArsenalBaseLink {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  linkAbility String
+  linkEffect String
+  cards GundamArsenalBaseCard[]
+}
+
+model GundamArsenalBaseSet{
+  id String @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String
+  shortName String
+  cards GundamArsenalBaseCard[]
+}
