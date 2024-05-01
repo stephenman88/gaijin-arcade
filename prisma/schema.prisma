@@ -46,6 +46,7 @@ model GundamArsenalBaseCard {
   setId Int
   setNum String
   suitCode String?
+  imageUrl String
 }
 
 model GundamArsenalBaseLink {
