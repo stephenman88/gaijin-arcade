@@ -64,5 +64,6 @@ model GundamArsenalBaseSet{
   updatedAt DateTime @updatedAt
   name String
   shortName String
+  requirement String
   cards GundamArsenalBaseCard[]
 }
