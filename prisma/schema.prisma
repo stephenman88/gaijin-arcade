@@ -17,6 +17,7 @@ model GundamArsenalBaseCard {
   id  Int @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  name String
   cardType String @db.varchar(255)
   msType String?
   plType String?
@@ -33,20 +34,30 @@ model GundamArsenalBaseCard {
   waterMod String?
   series String
   mainWeapon String?
+  mainWeaponRange Int?
+  mainWeaponType String?
   subWeapon String?
+  subWeaponRange Int?
+  subWeaponType String?
   msAbility String?
-  msTargetType String?
-  msAbilityCost Int?
   msActiveCondition String?
-  spAbilityDamage Int?
+  msTargetType String?
+  msAbilityRange Int?
+  msAbilityCost Int?
+  msAbilityDesc String?
+  spAbilityName String?
+  spAbilityTargetType String?
+  spAbilityRange Int?
   spAbilityCost Int?
-  spTargetType String?
+  spAbilityDamage Int?
+  spAbilityDesc String?
   linkIds GundamArsenalBaseLink[]
   set GundamArsenalBaseSet[] @relation(fields: [setid], references: [id])
   setId Int
   setNum String
   suitCode String?
-  imageUrl String
+  imageUrlFront String
+  imageUrlBack String
 }
 
 model GundamArsenalBaseLink {
