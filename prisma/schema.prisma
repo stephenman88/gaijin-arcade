@@ -13,68 +13,71 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model GundamArsenalBaseCard {
-  id  Int @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name String
-  cardType String @db.varchar(255)
-  msType String?
-  plType String?
-  parallel Boolean
-  cost Int
-  rarity String
-  mobility Int
-  longRange Int
-  shortRange Int
-  hp Int
-  earthMod String?
-  spaceMod String?
-  desertMod String?
-  waterMod String?
-  series String
-  mainWeapon String?
-  mainWeaponRange Int?
-  mainWeaponType String?
-  subWeapon String?
-  subWeaponRange Int?
-  subWeaponType String?
-  msAbility String?
-  msActiveCondition String?
-  msTargetType String?
-  msAbilityRange Int?
-  msAbilityCost Int?
-  msAbilityDesc String?
-  spAbilityName String?
-  spAbilityTargetType String?
-  spAbilityRange Int?
-  spAbilityCost Int?
-  spAbilityDamage Int?
-  spAbilityDesc String?
-  linkIds GundamArsenalBaseLink[]
-  set GundamArsenalBaseSet[] @relation(fields: [setid], references: [id])
-  setId Int
-  setNum String
-  suitCode String?
-  imageUrlFront String
-  imageUrlBack String
-}
-
 model GundamArsenalBaseLink {
-  id Int @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  linkAbility String
-  linkEffect String
-  cards GundamArsenalBaseCard[]
+  id          Int                     @id @default(autoincrement())
+  createdAt   DateTime                @default(now())
+  updatedAt   DateTime                @updatedAt
+  linkAbility String                  @unique
+  linkEffect  String
+  requirement String
+  cards       GundamArsenalBaseCard[]
 }
 
-model GundamArsenalBaseSet{
-  id String @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name String
-  shortName String
-  requirement String
-  cards GundamArsenalBaseCard[]
+model GundamArsenalBaseSet {
+  id        Int                     @id @default(autoincrement())
+  createdAt DateTime                @default(now())
+  updatedAt DateTime                @updatedAt
+  name      String                  @unique
+  shortName String                  @unique
+  cards     GundamArsenalBaseCard[]
+}
+
+model GundamArsenalBaseCard {
+  id                       Int                     @id @default(autoincrement())
+  createdAt                DateTime                @default(now())
+  updatedAt                DateTime                @updatedAt
+  name                     String
+  cardType                 String
+  msType                   String?
+  plType                   String?
+  parallel                 Boolean
+  cost                     Int
+  rarity                   String
+  mobility                 Int
+  longRange                Int
+  shortRange               Int
+  hp                       Int
+  earthMod                 String?
+  spaceMod                 String?
+  desertMod                String?
+  waterMod                 String?
+  series                   String
+  mainWeapon               String?
+  mainWeaponRange          Int?
+  mainWeaponType           String?
+  subWeapon                String?
+  subWeaponRange           Int?
+  subWeaponType            String?
+  msAbility                String?
+  msActiveCondition        String?
+  msTargetType             String?
+  msAbilityRange           Int?
+  msAbilityCost            Int?
+  msAbilityDesc            String?
+  spAbilityName            String?
+  spAbilityTargetType      String?
+  spAbilityRange           Int?
+  spAbilityCost            Int?
+  spAbilityDamage          Int?
+  spAbilityDesc            String?
+  linkIds                  GundamArsenalBaseLink[]
+  set                      GundamArsenalBaseSet    @relation(fields: [gundamArsenalBaseSetId], references: [id])
+  setNum                   String
+  suitCode                 String?
+  imageUrlFront            String
+  imageUrlBack             String
+  plAbilityName            String?
+  plAbilityActiveCondition String?
+  plAbilityDesc            String?
+  gundamArsenalBaseSetId   Int
 }

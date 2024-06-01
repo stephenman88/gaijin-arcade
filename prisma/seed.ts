@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main(){
-    const set = await prisma.GundamArsenalBaseSet.createMany({
+    const set = await prisma.gundamArsenalBaseSet.createMany({
         data: [
             {name: "Season:01", shortName: "AB01"},
             {name: "Season:02", shortName: "AB02"},
@@ -32,7 +32,7 @@ async function main(){
             {name: "Location Test", shortName: "TEST"}
         ]
     })
-    const link = await prisma.GundamArsenalBaseLink.createMany({
+    const link = await prisma.gundamArsenalBaseLink.createMany({
         data:[
             {linkAbility: "Mobile Suit Gundam", linkEffect: "[Mobility] increases slightly", requirement: "3 or more in deck"},
             {linkAbility: "The 08th MS Team", linkEffect: "[Long Range Atk] increases slightly", requirement: "3 or more in deck"},
@@ -75,7 +75,7 @@ async function main(){
             {linkAbility: "Newtype's Potential", linkEffect: "[Mobility] increases slightly", requirement: "3 or more in deck"},
             {linkAbility: "Veteran's Skill", linkEffect: "[Short Range Atk] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "Resilient Iron Flower", linkEffect: "[Short Range Atk] increases slightly", requirement: "3 or more in deck"},
-            {linkAbility: "Skillful Tactics", linkEffect: "[Long Range Atk] increases slightly", requirement: "2 or more in deck"},
+            {linkAbility: "Skillful, Coordinated Tactics", linkEffect: "[Long Range Atk] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "Black Tri-Stars", linkEffect: "[Long Range Atk][Short Range Atk] increases slightly", requirement: "3 or more in deck"},
             {linkAbility: "Pitch-Black Warrior", linkEffect: "[Mobility] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "Red Pride", linkEffect: "[Mobility] increases slightly", requirement: "3 or more in deck"},
@@ -96,7 +96,7 @@ async function main(){
             {linkAbility: "Mass Produced Unit", linkEffect: "[Mobility] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "Ability of Custom Units", linkEffect: "[Long Range Atk] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "All Range Weapon", linkEffect: "[Long Range Atk] increases slightly", requirement: "2 or more in deck"},
-            {linkAbility: "Indominatable Will", linkEffect: "[HP] increases slightly", requirement: "2 or more in deck"},
+            {linkAbility: "Indomitable Will", linkEffect: "[HP] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "Power to Change War", linkEffect: "[Long Range Atk][Short Range Atk] increases slightly", requirement: "4 or more in deck"},
             {linkAbility: "Sturdy Armor", linkEffect: "[HP] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "Terrible Fate", linkEffect: "[Mobility] increases slightly", requirement: "2 or more in deck"},
@@ -111,7 +111,7 @@ async function main(){
             {linkAbility: "Witch of Earth", linkEffect: "[Long Range Atk][Short Range Atk] increases slightly", requirement: "2 or more in deck"},
             {linkAbility: "Varied Strategies", linkEffect: "[Long Range Atk][Short Range Atk] increases slightly", requirement: "4 or more in deck"},
             {linkAbility: "Destructive Close Combatant", linkEffect: "[Short Range Atk] increases moderately", requirement: "Deck contains 2 or more [Short Range] Mobile Suits"},
-            {linkAbility: "Sniping Sharpshooter", linkEffect: "[Long Range Atk] increases moderately", requiement: "Deck contains 2 or more [Long Range] Mobile Suits"},
+            {linkAbility: "Sniping Sharpshooter", linkEffect: "[Long Range Atk] increases moderately", requirement: "Deck contains 2 or more [Long Range] Mobile Suits"},
             {linkAbility: "High Mobility Sharpshooter", linkEffect: "[Long Range Atk] increases moderately", requirement: "Deck contains 2 or more [Mobility] Mobile Suits"},
             {linkAbility: "High Speed Close Combatant", linkEffect: "[Short Range Atk] increases moderately", requirement: "Deck contains 2 or more [Mobility] Mobile Suits"},
             {linkAbility: "Overwhelming Power of Extermination", linkEffect: "Deals moderately increased damage to Exterminate units", requirement: "Deck contains 3 or more [Exterminate] Pilots"},
@@ -130,9 +130,8 @@ async function main(){
 
         ]
     })
-    const card = await prisma.GundamArsenalBaseCard.createMany({
-        data:[
-            {
+    const AB01001 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -178,8 +177,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01002 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -225,8 +225,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01003 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Guncannon",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -272,8 +273,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }})
+            const AB01004 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Guntank",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -319,8 +321,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01005 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "GM",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -366,8 +369,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01006 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Zaku II",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -413,8 +417,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01007 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Char's Zaku II",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -460,8 +465,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01008 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gouf",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -507,8 +513,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01009 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gouf",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -554,8 +561,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01010 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Dom",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -601,8 +609,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01011 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Dom",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -648,8 +657,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01012 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Dom",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -695,8 +705,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01013 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Pale Rider",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -742,8 +753,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01014 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Pale Rider",
                 cardType: "Mobile Suit",
                 msType: "Long Range Atk",
@@ -789,8 +801,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01015 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Unicorn Gundam",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -836,8 +849,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01015P = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Unicorn Gundam",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -883,8 +897,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01016 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Unicorn Gundam",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -930,8 +945,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01017 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Unicorn Gundam Perfectibility",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -977,8 +993,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01018 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Unicorn Gundam Perfectibility",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -1024,8 +1041,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01019 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Unicorn Gundam 02 Banshee Norn",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1071,8 +1089,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01020 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Sinanju",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1118,8 +1137,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01020P = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Sinanju",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1165,8 +1185,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01021 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Sinanju",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1212,8 +1233,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01022 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Kshatriya",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -1259,8 +1281,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01023 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Kshatriya",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1306,8 +1329,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01024 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Geara Zulu",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -1353,8 +1377,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01025 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Geara Zulu[Angelo Sauper Use]",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -1400,8 +1425,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01026 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Aile Strike Gundam",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -1447,8 +1473,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01026P = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Aile Strike Gundam",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -1494,8 +1521,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01027 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Aile Strike Gundam",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1541,8 +1569,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01028 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Aegis Gundam",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -1588,8 +1617,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01028P = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Aegis Gundam",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -1635,8 +1665,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01029 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Aegis Gundam",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -1682,8 +1713,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01030 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Duel Gundam",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -1729,8 +1761,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01031 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Buster Gundam",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -1776,8 +1809,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01032 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Blitz Gundam",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -1823,8 +1857,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01033 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Blitz Gundam",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -1870,8 +1905,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01034 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "LaGowe",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1917,8 +1953,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01035 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Barbatos",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -1964,8 +2001,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01035P = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Barbatos",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -2011,8 +2049,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01036 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Barbatos",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -2058,8 +2097,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01037 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Gusion Rebake",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -2105,8 +2145,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01038 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Ryusei-Go(Graze Custom II)",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -2152,8 +2193,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01039 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Graze",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -2199,8 +2241,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01040 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Graze Commander Type",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -2246,8 +2289,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01041 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Schwalbe Graze",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -2293,8 +2337,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01042 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Schwalbe Graze",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -2340,8 +2385,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01043 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Kimaris",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -2387,8 +2433,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01043P = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Kimaris",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -2434,8 +2481,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01044 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Gusion",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -2481,8 +2529,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }})
+            const AB01045 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Earthtree Gundam",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -2528,8 +2577,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01046 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Earthtree Gundam",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -2575,8 +2625,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01047 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Justice Knight",
                 cardType: "Mobile Suit",
                 msType: "Short Range",
@@ -2622,8 +2673,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01048 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Gundam Justice Knight",
                 cardType: "Mobile Suit",
                 msType: "Mobility",
@@ -2669,8 +2721,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01049 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Wodom Pod",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -2716,8 +2769,9 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01050 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Valkylander",
                 cardType: "Mobile Suit",
                 msType: "Long Range",
@@ -2763,10 +2817,11 @@ async function main(){
                 plAbilityName: null,
                 plAbilityActiveCondition: null,
                 plAbilityDesc:null,
-            },
-            {
+            }});
+            const AB01051 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Amuro Ray",
-                cardType: "Mobile Suit",
+                cardType: "Pilot",
                 msType: null,
                 plType: "Suppress",
                 parallel: false,
@@ -2810,10 +2865,11 @@ async function main(){
                 plAbilityName: "Decisive Attack",
                 plAbilityActiveCondition: "When this unit locks on to the enemy base/flagship",
                 plAbilityDesc: "Deal moderately increased damage to the enemy base/flagship",
-            },
-            {
+            }});
+            const AB01052 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Amuro Ray",
-                cardType: "Mobile Suit",
+                cardType: "Pilot",
                 msType: null,
                 plType: "Exterminate",
                 parallel: false,
@@ -2857,10 +2913,11 @@ async function main(){
                 plAbilityName: "Fierce Advance",
                 plAbilityActiveCondition: "When this unit destroys an enemy unit",
                 plAbilityDesc: "For 30 seconds, this unit gains moderately increased [Mobility].",
-            },
-            {
+            }});
+            const AB01053 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Kai Shiden",
-                cardType: "Mobile Suit",
+                cardType: "Pilot",
                 msType: null,
                 plType: "Exterminate",
                 parallel: false,
@@ -2901,13 +2958,14 @@ async function main(){
                 suitCode: null,
                 imageUrlFront: "../public/gundam-ab/ab01/AB01-053_front.png",
                 imageUrlBack: "../public/gundam-ab/ab01/AB01-053_back.png",
-                plAbilityName: "Sniping Cover Fire",
+                plAbilityName: "Precise Cover Fire",
                 plAbilityActiveCondition: "When this unit locks on to an enemy that an ally unit is targeting",
                 plAbilityDesc: "For 30 seconds, this unit gains slightly increased [Long Range Atk].",
-            },
-            {
+            }})
+            const AB01054 = await prisma.gundamArsenalBaseCard.create({
+data: {
                 name: "Hayato Kobayashi",
-                cardType: "Mobile Suit",
+                cardType: "Pilot",
                 msType: null,
                 plType: "Defense",
                 parallel: false,
@@ -2951,7 +3009,1693 @@ async function main(){
                 plAbilityName: "Steady Line of Fire",
                 plAbilityActiveCondition: "When this unit locks on to an enemy that is not targeting back",
                 plAbilityDesc: "For 40 seconds, this unit gains moderately increased [SP Strength].",
-            },
-        ]
-    })
+            }});
+            const AB01055 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Char Aznable",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 3,
+                rarity: "M",
+                mobility: 280,
+                longRange: 270,
+                shortRange: 150,
+                hp: 130,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Mobile Suit Gundam",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Newtype's Potential"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-055",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-055_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-055_back.png",
+                plAbilityName: "Proactive Fighting Spirit",
+                plAbilityActiveCondition: "When Deployed",
+                plAbilityDesc: "For 40 seconds, this unit gains moderately increased [Mobility][Long Range Atk][Short Range Atk].",
+            }});
+            const AB01056 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Char Aznable",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 5,
+                rarity: "R",
+                mobility: 220,
+                longRange: 180,
+                shortRange: 170,
+                hp: 160,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Mobile Suit Gundam",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Newtype's Potential"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-056",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-056_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-056_back.png",
+                plAbilityName: "Priorities In Order",
+                plAbilityActiveCondition: "When this unit locks on to the enemy base/flagship",
+                plAbilityDesc: "Deals slightly increased damage to the enemy base/flagship.",
+            }});
+            const AB01057 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Ramba Ral",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 5,
+                rarity: "R",
+                mobility: 180,
+                longRange: 110,
+                shortRange: 200,
+                hp: 250,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Mobile Suit Gundam",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Veteran's Skill"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-057",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-057_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-057_back.png",
+                plAbilityName: "Swift Assault",
+                plAbilityActiveCondition: "When Deployed",
+                plAbilityDesc: "For 40 seconds, this unit gains slightly increased [Mobility][Long Range Atk][Short Range Atk].",
+            }});
+            const AB01058 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Gaia",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 3,
+                rarity: "R",
+                mobility: 160,
+                longRange: 60,
+                shortRange: 200,
+                hp: 120,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Mobile Suit Gundam",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Black Tri-Stars"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-058",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-058_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-058_back.png",
+                plAbilityName: "Standardized Coordinated Attack",
+                plAbilityActiveCondition: "When this unit locks on to an enemy that an ally unit is targeting",
+                plAbilityDesc: "For 30 seconds, this unit gains slightly increased [Short Range Atk].",
+            }});
+            const AB01059 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Ortega",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 2,
+                rarity: "C",
+                mobility: 130,
+                longRange: 80,
+                shortRange: 140,
+                hp: 150,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Mobile Suit Gundam",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Black Tri-Stars"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-059",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-059_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-059_back.png",
+                plAbilityName: "Standardized Coordinated Attack",
+                plAbilityActiveCondition: "When this unit locks on to an enemy that an ally unit is targeting",
+                plAbilityDesc: "For 30 seconds, this unit gains slightly increased [Short Range Atk].",
+            }});
+            const AB01060 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Mash",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 2,
+                rarity: "C",
+                mobility: 130,
+                longRange: 80,
+                shortRange: 140,
+                hp: 150,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Mobile Suit Gundam",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Black Tri-Stars"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-060",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-060_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-060_back.png",
+                plAbilityName: "Precise Cover Fire",
+                plAbilityActiveCondition: "When this unit locks on to an enemy that an ally unit is targeting",
+                plAbilityDesc: "For 30 seconds, this unit gains slightly increased [Long Range Atk].",
+            }});
+            const AB01061 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Chloe Croce",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 3,
+                rarity: "M",
+                mobility: 250,
+                longRange: 100,
+                shortRange: 180,
+                hp: 180,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Mobile Suit Gundam Gaiden",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Mobile Suit Gundam Gaiden"}, {linkAbility: "Excellent Close Combat Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-061",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-061_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-061_back.png",
+                plAbilityName: "Unstable Power",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "For 35 seconds, [Short Range Atk] moderately increases while [Long Range Atk] slightly decreases.",
+            }});
+            const AB01062 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Banagher Links",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 4,
+                rarity: "U",
+                mobility: 150,
+                longRange: 300,
+                shortRange: 130,
+                hp: 280,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}, {linkAbility: "Newtype's Potential"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-062",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-062_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-062_back.png",
+                plAbilityName: "Liberated Fighting Spirit",
+                plAbilityActiveCondition: "In Regular Intervals After Deployment",
+                plAbilityDesc: "Every 40 seconds, [Long Range Atk][Short Range Atk] slightly increases. This effect activates 3 times at most.",
+            }});
+            const AB01063 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Banagher Links",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Defense",
+                parallel: false,
+                cost: 3,
+                rarity: "R",
+                mobility: 110,
+                longRange: 140,
+                shortRange: 140,
+                hp: 150,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}, {linkAbility: "Newtype's Potential"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-063",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-063_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-063_back.png",
+                plAbilityName: "Indomitable Will",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "Damage dealt to this unit is slightly reduced.",
+            }});
+            const AB01064 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Riddhe Marcenas",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 3,
+                rarity: "R",
+                mobility: 140,
+                longRange: 110,
+                shortRange: 140,
+                hp: 150,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}, {linkAbility: "Newtype's Potential"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-064",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-064_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-064_back.png",
+                plAbilityName: "Simple Sense of Justice",
+                plAbilityActiveCondition: "When an ally unit retreats",
+                plAbilityDesc: "For 40 seconds, [SP Strength] moderately increases.",
+            }});
+            const AB01065 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Full Frontal",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 5,
+                rarity: "P",
+                mobility: 290,
+                longRange: 230,
+                shortRange: 290,
+                hp: 230,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}, {linkAbility: "Newtype's Potential"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-065",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-065_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-065_back.png",
+                plAbilityName: "Aura of the Strong",
+                plAbilityActiveCondition: "When this unit locks on to an enemy unit",
+                plAbilityDesc: "For 20 seconds, the target's [Short Range Atk][Long Range Atk] is moderately reduced.",
+            }});
+            const AB01066 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Full Frontal",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 3,
+                rarity: "C",
+                mobility: 140,
+                longRange: 130,
+                shortRange: 140,
+                hp: 110,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}, {linkAbility: "Newtype's Potential"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-066",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-066_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-066_back.png",
+                plAbilityName: "Swift Assault",
+                plAbilityActiveCondition: "When Deployed",
+                plAbilityDesc: "For 40 seconds, this unit gains slightly increased [Mobility][Long Range Atk][Short Range Atk].",
+            }});
+            const AB01067 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Marida Cruz",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 5,
+                rarity: "M",
+                mobility: 60,
+                longRange: 420,
+                shortRange: 240,
+                hp: 240,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}, {linkAbility: "Excellent Sharpshooting Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-067",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-067_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-067_back.png",
+                plAbilityName: "Rising Fighting Spirit",
+                plAbilityActiveCondition: "When this unit destroys an enemy unit",
+                plAbilityDesc: "For 30 seconds, this unit gains moderately increased [Long Range Atk].",
+            }});
+            const AB01068 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Gilboa Saint",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 2,
+                rarity: "C",
+                mobility: 160,
+                longRange: 130,
+                shortRange: 130,
+                hp: 80,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}, {linkAbility: "Veteran's Skill"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-068",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-068_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-068_back.png",
+                plAbilityName: "Resupply Expertise",
+                plAbilityActiveCondition: "When deployed",
+                plAbilityDesc: "If this unit uses an MS ability called [Resupply], the amount of HP restored increases moderately.",
+            }});
+            const AB01069 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Angelo Sauper",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 2,
+                rarity: "C",
+                mobility: 150,
+                longRange: 210,
+                shortRange: 80,
+                hp: 60,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam UC",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam UC"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-069",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-069_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-069_back.png",
+                plAbilityName: "Warrior's Pride",
+                plAbilityActiveCondition: "When deployed",
+                plAbilityDesc: "When this unit uses an MS ability called [Call Reinforcement] for the first time, deployment cost is reduced by 1.",
+            }});
+            const AB01070 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Kira Yamato",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 7,
+                rarity: "U",
+                mobility: 360,
+                longRange: 300,
+                shortRange: 300,
+                hp: 260,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam SEED",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam SEED"}, {linkAbility: "Excellent Sharpshooting Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-070",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-070_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-070_back.png",
+                plAbilityName: "Signs of Awakening",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "For 35 seconds, [Mobility][Long Range Atk][Short Range Atk] are moderately increased.",
+            }});
+            const AB01071 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Kira Yamato",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 2,
+                rarity: "C",
+                mobility: 140,
+                longRange: 120,
+                shortRange: 120,
+                hp: 120,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam SEED",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam SEED"}, {linkAbility: "Excellent Close Combat Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-071",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-071_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-071_back.png",
+                plAbilityName: "Tenacious",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "For 35 seconds, [Long Range Atk][Short Range Atk] are moderately increased.",
+            }});
+            const AB01072 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Athrun Zala",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Defense",
+                parallel: false,
+                cost: 6,
+                rarity: "P",
+                mobility: 180,
+                longRange: 320,
+                shortRange: 180,
+                hp: 430,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam SEED",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam SEED"}, {linkAbility: "Excellent Sharpshooting Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-072",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-072_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-072_back.png",
+                plAbilityName: "Well-Trained Long-Distance Combat Style",
+                plAbilityActiveCondition: "When this unit locks on to an enemy unit",
+                plAbilityDesc: "For 20 seconds, [Long Range Atk] are moderately increased.",
+            }});
+            const AB01073 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Yzak Jule",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 4,
+                rarity: "R",
+                mobility: 140,
+                longRange: 180,
+                shortRange: 100,
+                hp: 140,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam SEED",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam SEED"}, {linkAbility: "Excellent Sharpshooting Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-073",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-073_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-073_back.png",
+                plAbilityName: "Omen of Counterattack",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "For 35 seconds, [Long Range Atk] moderately increases.",
+            }});
+            const AB01074 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Dearka Elthman",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 2,
+                rarity: "R",
+                mobility: 90,
+                longRange: 210,
+                shortRange: 50,
+                hp: 170,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam SEED",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam SEED"}, {linkAbility: "Excellent Sharpshooting Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-074",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-074_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-074_back.png",
+                plAbilityName: "Rising Fighting Spirit",
+                plAbilityActiveCondition: "When this unit destroys an enemy unit",
+                plAbilityDesc: "For 30 seconds, this unit gains moderately increased [Long Range Atk].",
+            }});
+            const AB01075 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Nicol Amarfi",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 3,
+                rarity: "C",
+                mobility: 170,
+                longRange: 120,
+                shortRange: 120,
+                hp: 110,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam SEED",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam SEED"}, {linkAbility: "Excellent Close Combat Sense"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-075",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-075_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-075_back.png",
+                plAbilityName: "Priorities In Order",
+                plAbilityActiveCondition: "When this unit locks on to the enemy base/flagship",
+                plAbilityDesc: "Deals slightly increased damage to the enemy base/flagship.",
+            }});
+            const AB01076 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Andorew Waldfeld",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 1,
+                rarity: "C",
+                mobility: 150,
+                longRange: 50,
+                shortRange: 150,
+                hp: 120,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Gundam SEED",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Gundam SEED"}, {linkAbility: "Veteran's Skill"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-076",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-076_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-076_back.png",
+                plAbilityName: "Pre-emptive Approach",
+                plAbilityActiveCondition: "When Deployed",
+                plAbilityDesc: "For 40 seconds, [Mobility][Short Range Atk] slightly increases.",
+            }});
+            const AB01077 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Mikazuki Augus",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 3,
+                rarity: "U",
+                mobility: 230,
+                longRange: 150,
+                shortRange: 250,
+                hp: 200,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}, {linkAbility: "Resilient Iron Flower"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-077",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-077_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-077_back.png",
+                plAbilityName: "Decisive Attack",
+                plAbilityActiveCondition: "When this unit locks on to the enemy base/flagship",
+                plAbilityDesc: "Deal moderately increased damage to the enemy base/flagship.",
+            }});
+            const AB01078 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Mikazuki Augus",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 4,
+                rarity: "C",
+                mobility: 130,
+                longRange: 80,
+                shortRange: 180,
+                hp: 150,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}, {linkAbility: "Resilient Iron Flower"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-078",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-078_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-078_back.png",
+                plAbilityName: "Unwavering Offense",
+                plAbilityActiveCondition: "When this unit destroys an enemy unit",
+                plAbilityDesc: "For 30 seconds, [Long Range Atk][Short Range Atk] slightly increases.",
+            }});
+            const AB01079 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Akihiro Altland",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Defense",
+                parallel: false,
+                cost: 4,
+                rarity: "R",
+                mobility: 70,
+                longRange: 100,
+                shortRange: 180,
+                hp: 220,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}, {linkAbility: "Resilient Iron Flower"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-079",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-079_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-079_back.png",
+                plAbilityName: "Indomitable Will",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "Damage dealt to this unit is slightly reduced.",
+            }});
+            const AB01080 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Norba Shino",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Defense",
+                parallel: false,
+                cost: 3,
+                rarity: "C",
+                mobility: 80,
+                longRange: 180,
+                shortRange: 130,
+                hp: 130,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}, {linkAbility: "Resilient Iron Flower"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-080",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-080_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-080_back.png",
+                plAbilityName: "Close Bonds",
+                plAbilityActiveCondition: "When this unit locks on to an enemy that an ally unit is targeting",
+                plAbilityDesc: "For 30 seconds, [Mobility][Long Range Atk] slightly increases.",
+            }});
+            const AB01081 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "McGillis Fareed",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 4,
+                rarity: "R",
+                mobility: 190,
+                longRange: 120,
+                shortRange: 170,
+                hp: 80,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-081",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-081_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-081_back.png",
+                plAbilityName: "Swift Assault",
+                plAbilityActiveCondition: "When deployed",
+                plAbilityDesc: "For 40 seconds, this unit gains slightly increased [Mobility][Long Range Atk][Short Range Atk].",
+            }});
+            const AB01082 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Gaelio Bauduin",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 2,
+                rarity: "P",
+                mobility: 330,
+                longRange: 130,
+                shortRange: 200,
+                hp: 130,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-082",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-082_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-082_back.png",
+                plAbilityName: "Simple Sense of Justice",
+                plAbilityActiveCondition: "When an ally unit retreats",
+                plAbilityDesc: "For 40 seconds, [SP Strength] moderately increases.",
+            }});
+            const AB01083 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Ein Dalton",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 2,
+                rarity: "C",
+                mobility: 100,
+                longRange: 160,
+                shortRange: 110,
+                hp: 130,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-083",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-083_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-083_back.png",
+                plAbilityName: "Resolved to Shoot",
+                plAbilityActiveCondition: "When an ally unit retreats",
+                plAbilityDesc: "For 35 seconds, [Long Range Atk][Short Range Atk] slightly increases.",
+            }});
+            const AB01084 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Crank Zent",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 1,
+                rarity: "R",
+                mobility: 100,
+                longRange: 70,
+                shortRange: 150,
+                hp: 150,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}, {linkAbility: "Veteran's Skill"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-084",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-084_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-084_back.png",
+                plAbilityName: "Warrior's Pride",
+                plAbilityActiveCondition: "When deployed",
+                plAbilityDesc: "When this unit uses an MS ability called [Call Reinforcement] for the first time, deployment cost is reduced by 1.",
+            }});
+            const AB01085 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Kudal Cadel",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 1,
+                rarity: "C",
+                mobility: 120,
+                longRange: 30,
+                shortRange: 150,
+                hp: 180,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Iron-Blooded Orphans",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Iron-Blooded Orphans"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-085",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-085_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-085_back.png",
+                plAbilityName: "Swift Assault",
+                plAbilityActiveCondition: "When deployed",
+                plAbilityDesc: "For 40 seconds, this unit gains slightly increased [Mobility][Long Range Atk][Short Range Atk].",
+            }});
+            const AB01086 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Hiroto",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Suppress",
+                parallel: false,
+                cost: 5,
+                rarity: "P",
+                mobility: 290,
+                longRange: 290,
+                shortRange: 290,
+                hp: 160,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Re:RISE",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Re:RISE"}, {linkAbility: "Skillful, Coordinated Tactics"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-086",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-086_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-086_back.png",
+                plAbilityName: "Thorough Battle Preparations",
+                plAbilityActiveCondition: "When deployed",
+                plAbilityDesc: "For 40 seconds, this unit gains slightly increased [Mobility][Long Range Atk].",
+            }});
+            const AB01087 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Kazami",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 3,
+                rarity: "R",
+                mobility: 90,
+                longRange: 90,
+                shortRange: 100,
+                hp: 260,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Re:RISE",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Re:RISE"}, {linkAbility: "Skillful, Coordinated Tactics"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-087",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-087_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-087_back.png",
+                plAbilityName: "Tenacious",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "For 35 seconds, [Long Range Atk][Short Range Atk] are moderately increased.",
+            }});
+            const AB01088 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "May",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Defense",
+                parallel: false,
+                cost: 2,
+                rarity: "M",
+                mobility: 110,
+                longRange: 230,
+                shortRange: 120,
+                hp: 220,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Re:RISE",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Re:RISE"}, {linkAbility: "Skillful, Coordinated Tactics"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-088",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-088_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-088_back.png",
+                plAbilityName: "Steady Line of Fire",
+                plAbilityActiveCondition: "When this unit locks on to an enemy that is not targeting back",
+                plAbilityDesc: "For 40 seconds, this unit gains moderately increased [SP Strength].",
+            }});
+            const AB01089 = await prisma.gundamArsenalBaseCard.create({
+data: {
+                name: "Parviz",
+                cardType: "Pilot",
+                msType: null,
+                plType: "Exterminate",
+                parallel: false,
+                cost: 3,
+                rarity: "M",
+                mobility: 150,
+                longRange: 260,
+                shortRange: 200,
+                hp: 100,
+                earthMod: null,
+                spaceMod: null,
+                desertMod: null,
+                waterMod: null,
+                series: "Re:RISE",
+                mainWeapon: null,
+                mainWeaponRange: null,
+                mainWeaponType: null,
+                subWeapon: null,
+                subWeaponRange: null,
+                subWeaponType: null,
+                msAbility: null,
+                msActiveCondition: null,
+                msTargetType: null,
+                msAbilityRange: null,
+                msAbilityCost: null,
+                msAbilityDesc: null,
+                spAbilityName: null,
+                spAbilityTargetType: null,
+                spAbilityRange: null,
+                spAbilityCost: null,
+                spAbilityDamage: null,
+                spAbilityDesc: null,
+                linkIds: {
+                    connect: [{linkAbility: "Re:RISE"}, {linkAbility: "Skillful, Coordinated Tactics"}]
+                },
+                set: {connect: {shortName: "AB01"}},
+                setNum: "-089",
+                suitCode: null,
+                imageUrlFront: "../public/gundam-ab/ab01/AB01-089_front.png",
+                imageUrlBack: "../public/gundam-ab/ab01/AB01-089_back.png",
+                plAbilityName: "Omen of Counterattack",
+                plAbilityActiveCondition: "When HP drops below 50%",
+                plAbilityDesc: "For 35 seconds, [Long Range Atk] moderately increases.",
+            }});
 }
+
+main().then(async() =>{
+    await prisma.$disconnect();
+}).catch(async (e) =>{
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+})
