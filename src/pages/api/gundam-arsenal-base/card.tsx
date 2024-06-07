@@ -1,4 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 type ResponseData = {
     id: Number,
@@ -45,58 +48,66 @@ type ResponseData = {
     plAbilityDesc: String|null,
     imageUrlFront: String,
     imageUrlBack: String
-}
+}   
 
-export default function handler(
+async function Handler(
     req: NextApiRequest,
     res: NextApiResponse<ResponseData>
 ){
+    console.log(req.query);
+
     if(req.method === 'GET'){
-        res.status(200).send({
-            id: -1,
-            name: "Gundam",
-                    cardType: "Mobile Suit",
-                    msType: "Short Range",
-                    plType: null,
-                    parallel: false,
-                    cost: 4,
-                    rarity: "M",
-                    mobility: 200,
-                    longRange: 110,
-                    shortRange: 370,
-                    hp: 380,
-                    earthMod: "A",
-                    spaceMod: "A",
-                    desertMod: "C",
-                    waterMod: "A",
-                    series: "Mobile Suit Gundam",
-                    mainWeapon: "Beam Saber",
-                    mainWeaponRange: 1,
-                    mainWeaponType: "Short Range",
-                    subWeapon: "Beam Rifle",
-                    subWeaponRange: 3,
-                    subWeaponType: "Long Range",
-                    msAbility: "Consecutive Attacks",
-                    msActiveCondition: "Manual Activation",
-                    msTargetType: "Single Target (Enemy)",
-                    msAbilityRange: 2,
-                    msAbilityCost: 3,
-                    msAbilityDesc: "Deal damage to the target.",
-                    spAbilityName: "Beam Saber Heavy Strike",
-                    spAbilityTargetType: "Single Target (Enemy)",
-                    spAbilityRange: 2,
-                    spAbilityCost: 2,
-                    spAbilityDamage: 3400,
-                    spAbilityDesc: "Deal short range damage to the target.",
-                    linkIds: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Its Name Is Gundam"}],
-                    set: "AB01",
-                    setNum: "-001",
-                    suitCode: "RX-78-2",
-                    imageUrlFront: "../public/gundam-ab/ab01/AB01-001_front.png",
-                    imageUrlBack: "../public/gundam-ab/ab01/AB01-001_back.png",
-                    plAbilityName: null,
-                    plAbilityActiveCondition: null,
-                    plAbilityDesc:null,
-        });
+        if(!req.query){
+            try{
+            const cards = await prisma.gundamArsenalBaseCard.findMany({
+                include:{
+                    linkIds: true
+                }
+            });
+            res.status(200).send(cards);
+            }catch(error){
+                res.status(404);
+            }finally{
+                await prisma.$disconnect();
+            }
+        }else{
+            try{
+                let query = {};
+                Object.keys(req.query).forEach((key, index) =>{
+                    if(key === "id" || key === "cost" || key === "mobility" || key === "longRange" || key === "shortRange" || key === "hp" || key === "subWeaponRange" || key === "mainWeaponRange" || key === "msAbilityRange" || key === "msAbilityCost" || key === "spAbilityRange" || key === "spAbilityCost" || key === "spAbilityDamage" || key === "set"){
+                        query = {
+                            ...query,
+                            [key]: Number(req.query[key])
+                        }
+                    }else if(key === "parallel"){
+                        query = {
+                            ...query,
+                            [key]: Boolean(req.query[key])
+                        }
+                    }else{
+                        query = {
+                            ...query,
+                            [key]: req.query[key]
+                        }
+                    }
+                })
+
+                const card = await prisma.gundamArsenalBaseCard.findMany({
+                    where: {
+                        ...query
+                    },
+                    include: {
+                        linkIds: true
+                    }
+                })
+                res.status(200).send(card)
+            }catch(error){
+                res.status(404);
+            }finally{
+                await prisma.$disconnect();
+            }
+        }
     }
 }
+
+export default Handler;

@@ -167,7 +167,7 @@ data: {
                 spAbilityDamage: 3400,
                 spAbilityDesc: "Deal short range damage to the target.",
                 linkIds: {
-                    connect: [{linkAbility: "Mobile Suit Gundam"}, {linkAbility: "Its Name Is Gundam"}]
+                    connect: [{id: 1}, {id: 38}]
                 },
                 set: {connect: {shortName: "AB01"}},
                 setNum: "-001",
