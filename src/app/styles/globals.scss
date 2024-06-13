@@ -1,0 +1,28 @@
+@use "./fonts.scss" as *;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  html{
+    min-height: 100%;
+  }
+  
+  body{
+    min-height: 100vh;
+  }
+
+  img{
+    object-fit: fill;
+    object-position: center;
+    width: 100%;
+  }
+  
+  .page-boundaries{
+    padding-left: 10%;
+    padding-right: 10%;
+  }

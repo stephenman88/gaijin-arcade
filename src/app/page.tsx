@@ -1,13 +1,14 @@
 import Image from "next/image";
-import GABPic from "../../public/game-links/GAB-UT2.png";
-import KANPic from "../../public/game-links/kancolle.jpg";
+import GABPic from "../assets/images/game-links/GAB-UT2.png";
+import KANPic from "../assets/images/game-links/kancolle.jpg";
+import HomeLogo from "../assets/roko-arcade-logo/svg/logo-no-background.svg";
 
 export default function Home(){
     return (
         <div className="home page-boundaries">
           <header className="home-header">
             <nav className="home-header-nav">
-              <img src="" alt="Site Banner" className="home-header-nav_banner"/>
+              <img src={HomeLogo.src} alt="Site Banner" className="home-header-nav_banner"/>
               <ul className="home-header-nav-links">
                 <li className="home-header-nav-links_item">Home</li>
                 <li className="home-header-nav-links_item">News</li>

@@ -3,56 +3,9 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-type ResponseData = {
-    id: Number,
-    name: String,
-    cardType: String,
-    msType: String|null,
-    plType: String|null,
-    parallel: Boolean,
-    cost: Number,
-    rarity: String,
-    mobility: Number,
-    longRange: Number,
-    shortRange: Number,
-    hp: Number,
-    earthMod: String|null,
-    spaceMod: String|null,
-    desertMod: String|null,
-    waterMod: String|null,
-    series: String,
-    mainWeapon: String|null,
-    mainWeaponRange: Number|null,
-    mainWeaponType: String|null,
-    subWeapon: String|null,
-    subWeaponRange: Number|null,
-    subWeaponType: String|null,
-    msAbility: String|null,
-    msTargetType: String|null,
-    msAbilityCost: Number|null,
-    msActiveCondition: String|null,
-    msAbilityRange: Number|null,
-    msAbilityDesc: String|null,
-    spAbilityName: String|null,
-    spAbilityTargetType: String|null,
-    spAbilityRange: Number|null,
-    spAbilityDamage: Number|null,
-    spAbilityCost: Number|null,
-    spAbilityDesc: String|null,
-    linkIds: Array<Object>,
-    set: String,
-    setNum: String,
-    suitCode: String|null,
-    plAbilityName: String|null,
-    plAbilityActiveCondition: String|null,
-    plAbilityDesc: String|null,
-    imageUrlFront: String,
-    imageUrlBack: String
-}   
-
 async function Handler(
     req: NextApiRequest,
-    res: NextApiResponse<ResponseData>
+    res: NextApiResponse
 ){
     console.log(req.query);
 
