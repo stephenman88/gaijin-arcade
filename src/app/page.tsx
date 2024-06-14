@@ -1,7 +1,7 @@
 import Image from "next/image";
 import GABPic from "../assets/images/game-links/GAB-UT2.png";
 import KANPic from "../assets/images/game-links/kancolle.jpg";
-import HomeLogo from "../assets/roko-arcade-logo/svg/logo-no-background.svg";
+import HomeLogo from "../assets/roko-arcade-logo/svg/logo-no-background-white.svg";
 
 export default function Home(){
     return (
@@ -18,11 +18,14 @@ export default function Home(){
             </nav>
           </header>
           <main className="home-main">
-            <ul className="home-main-games">
-              <li className="home-main-games-item"><img className="home-main-games-item_image" src={GABPic.src} alt="Gundam Arsenal Base"/></li>
-              <li className="home-main-games-item"><img className="home-main-games-item_image--inactive" alt="Kantai Collection" src={KANPic.src}/></li>
-            </ul>
+            <div className="home-main-games">
+              <img className="home-main-games_item" src={GABPic.src} alt="Gundam Arsenal Base"/>
+              <img className="home-main-games_item--inactive" alt="Kantai Collection" src={KANPic.src}/>
+            </div>
           </main>
+          <footer className="home-footer">
+            <p className="home-footer_disclaimer">This is a fan-site made by Stephen Man.</p>
+          </footer>
         </div>
     )
 };

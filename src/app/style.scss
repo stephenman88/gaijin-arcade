@@ -6,12 +6,16 @@
 $home-font-color: #293040;
 
 .home{
+  min-height: 100vh;
+  font-family: "fugaz-one";
+  background-color: $home-font-color;
+  color: white;
   &-header{
     width: 100%;
     display:flex;
     justify-content: center;
-    font-family: "fugaz-one";
     padding-top: 1rem;
+    padding-bottom: 0.5rem;
 
     &-nav{
       width: 100%;
@@ -20,7 +24,7 @@ $home-font-color: #293040;
       flex-direction:column;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
 
       &_banner{
         object-fit: fill;
@@ -34,7 +38,55 @@ $home-font-color: #293040;
         flex-direction: row;
         align-items:flex-end;
         justify-content: space-between;
+        
+
+        &_item{
+          font-size:0.5rem;
+          padding: 0.2rem 0.8rem 0.2rem;
+          border-radius: 5rem;
+          &:hover{
+            background-color: #FFFFFF;
+            color: $home-font-color;
+          }
+        }
       }
+    }
+  }
+
+  &-main{
+    display: flex;
+    flex-direction: column;
+
+    &-games{
+      align-self: center;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      &_item{
+        height: 100%;
+        width: 100%;
+        flex: 1 1 auto;
+        object-fit: fill;
+
+        &--inactive{
+          @extend .home-main-games_item;
+        }
+      }
+    }
+  }
+
+  &-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+
+    &_disclaimer{
+      font-size:0.35rem;
     }
   }
 }
