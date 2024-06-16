@@ -21,8 +21,34 @@
     object-position: center;
     width: 100%;
   }
+
+  @mixin tablet{
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @mixin desktop{
+    @media screen and (min-width: 1280px){
+      @content;
+    }
+  }
+
+  @mixin fourk{
+    @media screen and (min-width: 1440px){
+      @content;
+    }
+  }
   
   .page-boundaries{
     padding-left: 10%;
     padding-right: 10%;
+
+    @include desktop{
+      max-width: 70rem;
+    }
+
+    @include fourk{
+      max-width: 200rem;
+    }
   }

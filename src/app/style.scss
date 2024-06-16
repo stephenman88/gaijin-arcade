@@ -10,12 +10,20 @@ $home-font-color: #293040;
   font-family: "fugaz-one";
   background-color: $home-font-color;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &-header{
     width: 100%;
     display:flex;
     justify-content: center;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
+
+    @include tablet{
+      padding-top: 2rem;
+      padding-bottom: 1rem;
+    }
 
     &-nav{
       width: 100%;
@@ -41,12 +49,16 @@ $home-font-color: #293040;
         
 
         &_item{
-          font-size:0.5rem;
+          font-size:0.75rem;
           padding: 0.2rem 0.8rem 0.2rem;
           border-radius: 5rem;
           &:hover{
             background-color: #FFFFFF;
             color: $home-font-color;
+          }
+
+          @include tablet{
+            font-size: 1.25rem;
           }
         }
       }
@@ -56,11 +68,12 @@ $home-font-color: #293040;
   &-main{
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 
     &-games{
       align-self: center;
       display: flex;
-      gap: 0.5rem;
+      gap: 1rem;
       justify-content: space-around;
       flex-wrap: wrap;
 
@@ -70,8 +83,13 @@ $home-font-color: #293040;
         flex: 1 1 auto;
         object-fit: fill;
 
+        @include tablet{
+          width: 45%;
+        }
+
         &--inactive{
           @extend .home-main-games_item;
+          filter: grayscale(1)
         }
       }
     }
@@ -85,8 +103,17 @@ $home-font-color: #293040;
     padding-top: 0.5rem;
     padding-bottom: 1rem;
 
+    @include tablet{
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+    }
+
     &_disclaimer{
       font-size:0.35rem;
+
+      @include tablet{
+        font-size: 0.5rem;
+      }
     }
   }
 }
