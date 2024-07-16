@@ -2,6 +2,8 @@ import Image from "next/image";
 import GABPic from "../assets/images/game-links/GAB-UT2.png";
 import KANPic from "../assets/images/game-links/kancolle.jpg";
 import HomeLogo from "../assets/roko-arcade-logo/svg/logo-no-background-white.svg";
+import Link from "next/link";
+
 
 export default function Home(){
     return (
@@ -10,10 +12,9 @@ export default function Home(){
             <nav className="home-header-nav">
               <img src={HomeLogo.src} alt="Site Banner" className="home-header-nav_banner"/>
               <ul className="home-header-nav-links">
-                <li className="home-header-nav-links_item">Home</li>
-                <li className="home-header-nav-links_item">News</li>
-                <li className="home-header-nav-links_item">Articles</li>
-                <li className="home-header-nav-links_item">About</li>
+                <li className="home-header-nav-links_item"><Link href="/">Home</Link></li>
+                <li className="home-header-nav-links_item"><Link href="/news">News</Link></li>
+                <li className="home-header-nav-links_item"><Link href="/articles">Articles</Link></li>
               </ul>
             </nav>
           </header>
