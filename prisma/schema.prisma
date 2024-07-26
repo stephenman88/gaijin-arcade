@@ -76,3 +76,16 @@ model GundamArsenalBaseCard {
   linkIds                  GundamArsenalBaseLink[]
 
 }
+
+model HomeNews{
+  Id  Int @id @default(autoincrement())
+  Title String
+  IFrameSrc String?
+  Description String?
+}
+
+model HomeArticle{
+  Id Int @id @default(autoincrement())
+  Title String
+  Article String?
+}

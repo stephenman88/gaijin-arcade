@@ -1,0 +1,48 @@
+@use "../styles/globals.scss";
+
+$black: #2a2a2a;
+$gab-green: #68EFBD;
+
+.gab{
+    background-color: $black;
+    height: 100%;
+    width: 100%;
+    color: $gab-green;
+    font-family: "Montserrat", sans-serif;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    &-header{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1vh;
+        margin-bottom: 2vh;
+
+        &_logo{
+            width: 35%;
+        }
+
+        &-nav{
+            align-self: stretch;
+            &-links{
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &-main{
+        flex-grow: 1;
+    }
+
+    &-footer{
+        font-size: 0.5rem;
+        text-align: center;
+    }
+}
