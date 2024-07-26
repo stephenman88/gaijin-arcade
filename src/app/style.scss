@@ -75,17 +75,21 @@ $home-font-color: #293040;
       display: flex;
       gap: 1rem;
       justify-content: space-around;
+      align-items: stretch;
       flex-wrap: wrap;
 
-      &_item{
+      & > *{
         height: 100%;
         width: 100%;
         flex: 1 1 auto;
-        object-fit: fill;
-
+        
         @include tablet{
           width: 45%;
         }
+      }
+
+      &_item{
+        object-fit: fill;
 
         &--inactive{
           @extend .home-main-games_item;

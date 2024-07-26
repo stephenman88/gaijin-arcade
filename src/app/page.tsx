@@ -20,7 +20,7 @@ export default function Home(){
           </header>
           <main className="home-main page-boundaries">
             <div className="home-main-games">
-              <img className="home-main-games_item" src={GABPic.src} alt="Gundam Arsenal Base"/>
+              <Link href="/gundam-arsenal-base"><img className="home-main-games_item" src={GABPic.src} alt="Gundam Arsenal Base"/></Link>
               <img className="home-main-games_item--inactive" alt="Kantai Collection" src={KANPic.src}/>
             </div>
           </main>
